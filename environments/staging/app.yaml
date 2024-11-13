@@ -15,8 +15,9 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: teleport-staging
-    createNamespace: true   # Ensure namespace is created if it doesn't exist
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
