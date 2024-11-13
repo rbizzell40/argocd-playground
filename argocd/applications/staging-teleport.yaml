@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/rbizzell40/argocd-playground.git
-    targetRevision: HEAD
+    targetRevision: main
     path: apps/teleport-cluster
     helm:
       valueFiles:
