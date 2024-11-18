@@ -1,2 +1,21 @@
 # environments/staging/values.yaml
-replicaCount: 1
+teleport-cluster:
+  clusterName: "teleport-staging"
+auth:
+  replicaCount: 1
+  resources:
+    requests:
+      cpu: "1"
+      memory: "1Gi"
+    limits:
+      cpu: "2"
+      memory: "2Gi"
+proxy:
+  replicaCount: 1
+  resources:
+    requests:
+      cpu: "1"
+      memory: "1Gi"
+    limits:
+      cpu: "2"
+      memory: "2Gi"
