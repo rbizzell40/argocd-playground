@@ -14,8 +14,9 @@ spec:
     helm:
       values: |
         clusterName: teleport-staging
+        kubeClusterName: teleport-staging-cluster
         auth:
-        serviceAccountName: teleport-staging
+          serviceAccountName: teleport-staging
           replicaCount: 1
           resources:
             requests:
