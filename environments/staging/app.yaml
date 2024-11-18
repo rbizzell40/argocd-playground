@@ -13,7 +13,7 @@ spec:
     targetRevision: 16.4.7
     helm:
       values: |
-        clusterName: "teleport-staging"
+        clusterName: teleport-staging
         auth:
         serviceAccountName: teleport-cluster
           replicaCount: 1
