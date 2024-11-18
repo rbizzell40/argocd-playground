@@ -6,12 +6,19 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://goteleport.github.io/charts
+    repoURL: https://charts.releases.teleport.dev
+    chart: teleport-cluster    # Changed from path to chart
     targetRevision: 16.4.7
-    path: apps/teleport-cluster
     helm:
-      valueFiles:
-        - environments/staging/values.yaml
+      values: |               # Direct values instead of valueFiles
+        teleport-cluster:     # Added parent key for dependency
+          clusterName: "teleport-staging"
+          auth:
+            replicaCount: 1
+            resources:
+              requests:
+                cpu: "1"
+                memory: "1Gi"
   destination:
     server: https://kubernetes.default.svc
     namespace: teleport-staging
