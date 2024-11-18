@@ -15,12 +15,14 @@ spec:
       values: |
         clusterName: "teleport-staging"
         auth:
+        serviceAccountName: teleport-cluster
           replicaCount: 1
           resources:
             requests:
               cpu: "1"
               memory: "1Gi"
         proxy:
+          serviceAccountName: teleport-cluster-proxy
           replicaCount: 1
           resources:
             requests:
