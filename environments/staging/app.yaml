@@ -6,8 +6,8 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/rbizzell40/argocd-playground.git
-    targetRevision: main
+    repoURL: https://goteleport.github.io/charts
+    targetRevision: 16.4.7
     path: apps/teleport-cluster
     helm:
       valueFiles:
