@@ -10,19 +10,19 @@ spec:
   source:
     repoURL: https://charts.releases.teleport.dev
     chart: teleport-cluster
-    targetRevision: 16.4.7
+    targetRevision: 17.0.1
     helm:
       values: |
         clusterName: teleport-staging
         auth:
-        serviceAccountName: teleport-cluster
+        serviceAccountName: teleport-staging
           replicaCount: 1
           resources:
             requests:
               cpu: "1"
               memory: "1Gi"
         proxy:
-          serviceAccountName: teleport-cluster-proxy
+          serviceAccountName: teleport-staging-proxy
           replicaCount: 1
           resources:
             requests:
