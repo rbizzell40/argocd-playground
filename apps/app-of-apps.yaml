@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/rbizzell40/argocd-playground.git
     targetRevision: main
-    path: environments
+    path: environments/staging
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
