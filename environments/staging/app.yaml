@@ -3,22 +3,29 @@ kind: Application
 metadata:
   name: teleport-staging
   namespace: argocd
+  labels:
+    app.kubernetes.io/instance: app-of-apps
 spec:
   project: default
   source:
     repoURL: https://charts.releases.teleport.dev
-    chart: teleport-cluster    # Changed from path to chart
+    chart: teleport-cluster
     targetRevision: 16.4.7
     helm:
-      values: |               # Direct values instead of valueFiles
-        teleport-cluster:     # Added parent key for dependency
-          clusterName: "teleport-staging"
-          auth:
-            replicaCount: 1
-            resources:
-              requests:
-                cpu: "1"
-                memory: "1Gi"
+      values: |
+        clusterName: "teleport-staging"
+        auth:
+          replicaCount: 1
+          resources:
+            requests:
+              cpu: "1"
+              memory: "1Gi"
+        proxy:
+          replicaCount: 1
+          resources:
+            requests:
+              cpu: "1"
+              memory: "1Gi"
   destination:
     server: https://kubernetes.default.svc
     namespace: teleport-staging
